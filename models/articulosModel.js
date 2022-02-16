@@ -1,4 +1,4 @@
-var pool = require('./../bd')
+var pool = require('./bd')
 
 async function getArticulos(){
     var query = "select * from articulos order by id desc";
