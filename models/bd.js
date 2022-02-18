@@ -1,13 +1,15 @@
-var mysql = require('mysql')
-var util = require('util')
-
+var mysql = require('mysql');
+var util = require('util');
+require('dotenv').config();
 var pool = mysql.createPool({
-    connectionLimit: 10,
+    connectionLimit: 10, 
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASS,
-    database: process.env.MYSQL_BD_NAME,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DB_NAME,
+    port:process.env.DB_PORT
 })
+
 
 pool.query = util.promisify(pool.query);
 
